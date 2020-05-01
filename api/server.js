@@ -1,15 +1,15 @@
 const express = require('express');
 
-// const Hobbits = require("../hobbits/hobbitsModel.js");
+const avengersRouter = require('../avengers/avengers-router.js')
 
 const server = express();
 
 server.use(express.json());
 
-server.get("/", (req, res) => {
-  res.status(200).json({ api: "up" });
-});
+server.use('/api/avengers', avengersRouter);
 
-// we need to add routers
+server.get("/", (req, res) => {
+  res.status(200).json({ api: "running" });
+});
 
 module.exports = server;
